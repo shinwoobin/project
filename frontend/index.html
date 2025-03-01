@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js + PHP 연동</title>
+    <script>
+        async function fetchData() {
+            try {
+                // ✅ Node.js API 호출
+                let nodeResponse = await fetch("http://localhost:3000/api/data");
+                if (!nodeResponse.ok) throw new Error("Node.js API 호출 실패");
+                let nodeData = await nodeResponse.json();
+                document.getElementById("nodeData").innerText = nodeData.message;
+                console.log("✅ Node.js 응답:", nodeData);
+
+                // ✅ PHP 서버에서 데이터 가져오기
+                let phpResponse = await fetch("http://localhost:8000/data.php");
+                if (!phpResponse.ok) throw new Error("PHP API 호출 실패");
+                let phpData = await phpResponse.json(); // JSON으로 받기
+                document.getElementById("phpData").innerText = phpData.message;
+                console.log("✅ PHP 응답:", phpData);
+            } catch (error) {
+                console.error("❌ 데이터 불러오기 오류:", error);
+            }
+        }
+
+        window.onload = fetchData;
+    </script>
+</head>
+<body>
+    <h1>Node.js +  웹페이지</h1>
+    <h2>🔹 Node.js API 응답:</h2>
+
+    
+
+
+    <p id="nodeData">로딩 중...</p>
+
+    <h2>🔹 PHP 응답:</h2>
+    <p id="phpData">로딩 중...</p>
+</body>
+</html>
+
+
+
+
