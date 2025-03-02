@@ -10,20 +10,20 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
     <script>
-        // ✅ 카카오 SDK 초기화 (여기 YOUR_APP_KEY를 카카오 개발자 콘솔에서 가져와서 변경!)
-        Kakao.init("4af9355845105042f98deb7292499b86");
+        // ✅ 자바 스크립트 키 설정
+        Kakao.init("314bf3979dbbb18d44706d79e4a02db1");
         console.log("✅ Kakao SDK initialized:", Kakao.isInitialized());
 
         function shareKakao() {
             Kakao.Share.sendDefault({
                 objectType: "feed",
                 content: {
-                    title: "광고 페이지",
+                    title: "미래 앤 영어",
                     description: "이 광고 페이지를 친구들에게 공유해보세요!",
-                    imageUrl: "https://your-image-url.com/example.jpg", // 공유할 이미지 URL 변경
+                    imageUrl: "http://webmarble.kr/main/wizs/lib/uploadfile/img/2309692606_상단.jpg", // 공유할 이미지 URL 변경
                     link: {
-                        mobileWebUrl: "http://localhost:8000/",
-                        webUrl: "http://localhost:8000/"
+                        mobileWebUrl: "http://01044230579.webmarble.kr/main/company.php",
+                        webUrl: "http://01044230579.webmarble.kr/main/company.php"
                     }
                 }
             });
