@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오톡 공유하기</title>
+</head>
+<body>
+
+    <!-- 공유하기 버튼 -->
+    <button id="kakao-share-btn">
+        카카오톡 공유하기
+    </button>
+
+    <!-- 카카오 SDK 불러오기 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        // ✅ 1. 카카오 SDK 초기화 (발급받은 JavaScript 키 입력)
+        Kakao.init('YOUR_JAVASCRIPT_KEY'); // 🔥 여기에 JavaScript 키 넣기
+        console.log(Kakao.isInitialized()); // true 나오면 정상 초기화됨
+
+        // ✅ 2. 버튼 클릭 시 카카오톡 공유 실행
+        document.getElementById('kakao-share-btn').addEventListener('click', function() {
+            Kakao.Link.sendDefault({
+                objectType: 'feed', // 피드 형식의 메시지
+                content: {
+                    title: '광고 제목',  // 공유할 제목
+                    description: '이 광고를 확인해보세요!',  // 공유할 설명
+                    imageUrl: 'https://your-image-url.com/image.jpg',  // 대표 이미지
+                    link: {
+                        mobileWebUrl: 'https://your-website.com',  // 모바일 웹 링크
+                        webUrl: 'https://your-website.com'  // 웹 링크
+                    }
+                },
+                buttons: [
+                    {
+                        title: '광고 보러 가기',
+                        link: {
+                            mobileWebUrl: 'https://your-website.com',
+                            webUrl: 'https://your-website.com'
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+</body>
+</html>

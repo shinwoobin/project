@@ -25,6 +25,8 @@ app.get("/api/data", (req, res) => {
     res.json({ message: "Hello from the backend!" });
 });
 
+
+
 // ✅ PHP 서버 실행
 const phpServer = exec("php -S localhost:8000 -t ../frontend");
 
